@@ -6,7 +6,7 @@ import BudgetContext from "./BudgetContext";
 const BudgetContextProvider: React.FC<IBudgetContextProvider> = ({
   children,
 }) => {
-  const BUDGET_APP_URL = "https://localhost:5001/budget";
+  const BUDGET_APP_URL = "https://localhost:7260/Budget";
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
 
   // Fetch transactions at start
