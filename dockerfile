@@ -5,13 +5,13 @@ FROM node:latest AS build
 WORKDIR /app
 
 # Copy the package.json and package-lock.json
-COPY todo-app/package*.json ./
+COPY finance-buddy/package*.json ./
 
 # Install dependencies
 RUN npm install
 
 # Copy the rest of the app's source code
-COPY todo-app/ .
+COPY finance-buddy/ .
 
 # Build for production
 RUN npm run build
