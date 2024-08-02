@@ -27,7 +27,7 @@ const BudgetContextProvider: React.FC<IBudgetContextProvider> = ({
       body: JSON.stringify(item),
     })
       .then((response) => response.json())
-      .then((data) => data.setTransactions([...transactions, data]))
+      .then((data) => setTransactions([...transactions, data]))
       .catch((error) => console.error("Error adding budget item:", error));
   };
 
