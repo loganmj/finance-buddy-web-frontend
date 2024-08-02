@@ -27,7 +27,6 @@ const BudgetContextProvider: React.FC<IBudgetContextProvider> = ({
       body: JSON.stringify(item),
     })
       .then((response) => response.json())
-      // .then((data) => setTransactions([...transactions, data]))
       .then((data) => {
         setTransactions(
           [...transactions, data].sort(
