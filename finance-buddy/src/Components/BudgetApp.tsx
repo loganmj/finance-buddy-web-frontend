@@ -23,22 +23,6 @@ const BudgetApp: React.FC = () => {
   return (
     <div>
       <h1>Budget Items</h1>
-      <ul>
-        {transactions.map((item: ITransaction) => (
-          <li key={item.id}>
-            {item.name}: ${item.amount} on{" "}
-            {new Date(item.transactionDate).toLocaleDateString()}
-            <button onClick={() => deleteTransaction(item.id)}>Delete</button>
-            <button
-              onClick={() =>
-                updateTransaction(item.id, { ...item, name: "Updated Name" })
-              }
-            >
-              Update
-            </button>
-          </li>
-        ))}
-      </ul>
       <div>
         <input
           type="text"
@@ -71,6 +55,22 @@ const BudgetApp: React.FC = () => {
         />
         <button onClick={handleAdd}>Add Budget Item</button>
       </div>
+      <ul>
+        {transactions.map((item: ITransaction) => (
+          <li key={item.id}>
+            {item.name}: ${item.amount} on{" "}
+            {new Date(item.transactionDate).toLocaleDateString()}
+            <button onClick={() => deleteTransaction(item.id)}>Delete</button>
+            <button
+              onClick={() =>
+                updateTransaction(item.id, { ...item, name: "Updated Name" })
+              }
+            >
+              Update
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

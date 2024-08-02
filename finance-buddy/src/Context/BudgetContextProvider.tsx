@@ -27,7 +27,16 @@ const BudgetContextProvider: React.FC<IBudgetContextProvider> = ({
       body: JSON.stringify(item),
     })
       .then((response) => response.json())
-      .then((data) => setTransactions([...transactions, data]))
+      // .then((data) => setTransactions([...transactions, data]))
+      .then((data) => {
+        setTransactions(
+          [...transactions, data].sort(
+            (a, b) =>
+              new Date(b.transactionDate).getTime() -
+              new Date(a.transactionDate).getTime()
+          )
+        );
+      })
       .catch((error) => console.error("Error adding budget item:", error));
   };
 
